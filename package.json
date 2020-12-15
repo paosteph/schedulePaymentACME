@@ -13,5 +13,8 @@
     "testing"
   ],
   "author": "Paola Guamani C.",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
