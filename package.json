@@ -1,0 +1,17 @@
+{
+  "name": "ejercicio-pago-acme",
+  "version": "1.0.0",
+  "description": "Ejercicio para calcular monto pago empleados en Acme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "mvc",
+    "patrones",
+    "disenio",
+    "testing"
+  ],
+  "author": "Paola Guamani C.",
+  "license": "MIT"
+}
