@@ -1,3 +1,16 @@
+const Tariff = {
+    WEEK: {
+        EARLY_MORNING: 25,
+        DURING_DAY: 15,
+        NIGHT: 20
+    },
+    WEEKEND: {
+        EARLY_MORNING: 30,
+        DURING_DAY: 20,
+        NIGHT: 25
+    }
+};
+
 const TimeDay = {
     MO: 'WEEK',
     TU: 'WEEK',
@@ -12,9 +25,9 @@ const Time = {
     EARLY_MORNING: 'EARLY_MORNING',
     DURING_DAY: 'DURING_DAY',
     NIGHT: 'NIGHT'
-}
+};
 
-const TimeHour = {
+const TimeRules = {
     EARLY_MORNING: {
         START: 1,
         END: 900
@@ -27,17 +40,27 @@ const TimeHour = {
         START: 1801,
         END: 2400
     }
-}
+};
 
 const TimeEndSchedule = {
-    EARLY_MORNING: '9:00',
-    DURING_DAY: '18:00',
-    NIGHT: '00:00'
-}
+    EARLY_MORNING: {
+        hour: 9,
+        minutes: 0
+    },
+    DURING_DAY: {
+        hour: 18,
+        minutes: 0
+    },
+    NIGHT: {
+        hour: 0,
+        minutes: 0
+    }
+};
 
 module.exports = {
     TimeDay,
-    TimeHour,
+    TimeRules,
     Time,
-    TimeEndSchedule
-}
+    TimeEndSchedule,
+    Tariff
+};

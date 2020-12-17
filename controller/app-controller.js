@@ -1,7 +1,7 @@
-const {EmployeeService} = require('../modelo/employee-service');
-const { PayFacade } = require('../modelo/pay-facade');
-const { DataTransform } = require('./data-transform');
-const { DataValidation } = require('./data-validation');
+const { EmployeeService } = require('../model/employe-service/employee-service');
+const { PayFacade } = require('../model/pay-facade/pay-facade');
+const { DataTransform } = require('./transform/data-transform');
+const { DataValidation } = require('./validation/data-validation');
 
 class AppController {
     constructor() {
@@ -9,45 +9,43 @@ class AppController {
         this.payFacade = new PayFacade();
     }
 
-    createEmployee(employeeData) {
-        const validationEmployeeData = new DataValidation(employeeData);
-        if (validationEmployeeData.error) {
-            return validationEmployeeData;
+    createOneEmployee(plainEmployeeData) {
+        const dataValidation = new DataValidation(plainEmployeeData);
+        const validation = dataValidation.validate();
+        if (validation.error) {
+            return validation;
         }
-
-        const dataFormated = new DataTransform(employeeData);
-
-        return this.employeeService.create(...dataFormated);
+        const dataTransform = new DataTransform(plainEmployeeData);
+        const jsonEmployeeData = dataTransform.transform();
+        return this.employeeService.create(jsonEmployeeData);
     }
 
-    registerEmployees(employeesData) {
-        return employeesData.map(employeeData => {
-            return this.createEmployee(employeeData);
-        });
+    createEmployees(employeesData) {
+        try {
+            if (employeesData.length === 0) return {error: 'File is empty'};
+            return employeesData.map(employeeData => {
+                return this.createOneEmployee(employeeData);
+            });
+        } catch (e) {
+            return {error: e.message.toString()};
+        }
     }
 
-    getEmployeesPayAmount(employees) {
-        return employees.map(employee => {
-            return this.payFacade.getEmployeePayAmount(employee);
-        });
-    }
-
-    getEmployeesPay(data) { // facade
-        const createdEmployeeResponse = this.registerEmployees(data);
-
-        return createdEmployeeResponse.map(employeeResponse => {
-            if (employeeResponse.error) {
-                return employeeResponse;
+    getEmployeePay(employeeId) {
+        if (!employeeId) {
+            return {error: 'Id is undefined'};
+        }
+        const employee = this.employeeService.get(employeeId);
+        if (employee) {
+            return {
+                employee,
+                pay: this.payFacade.getEmployeePayAmount(employee)
             }
-            const response = {
-                employee: employeeResponse.getEmployee(),
-                pay: this.payFacade.getEmployeePayAmount(employeeResponse)
-            };
-            return response;
-        });
+        }
+        return {error: 'Employee ID is not registered'};
     }
 }
 
 module.exports = {
     AppController
-}
+};

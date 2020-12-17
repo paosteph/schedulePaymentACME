@@ -1,11 +1,11 @@
 const { Workday } = require("./workday");
 
 class Employee {
-    workdays = [];
 
     constructor(id, name){
         this.id = id;
         this.name = name;
+        this.workdays = [];
     }
 
     addWorday(day, startTime, endTime) {
@@ -22,4 +22,4 @@ class Employee {
 
 module.exports = {
     Employee
-}
+};

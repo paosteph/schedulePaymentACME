@@ -1,12 +1,12 @@
-const { Employee } = require("./objetos/employee");
-const workday = require("./objetos/workday");
+const { Employee } = require("../objects/employee");
 
 class EmployeeService {
-    employees = [];
 
-    constructor() {}
+    constructor() {
+        this.employees = [];
+    }
 
-    create(name, workdays) {
+    create({name, workdays}) {
         const id = this.employees.length + 1;
         const employee = new Employee(id, name);
 
@@ -21,15 +21,15 @@ class EmployeeService {
 
     get(id) {
         return this.employees.find(employee => {
-            return employee.id == id;
+            return employee.id === id;
         });
     }
 
-    getAll() {
+    /*getAll() {
         return this.employees;
-    }
+    }*/
 }
 
 module.exports = {
     EmployeeService
-}
+};
