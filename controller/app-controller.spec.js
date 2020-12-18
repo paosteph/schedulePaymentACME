@@ -49,9 +49,10 @@ describe('Test App Controller function: CreateEmployees', () => {
         ];
         expect(controller.createEmployees(input)).toEqual(output);
     });
-    test('it should get an empty array by given an empty string array valid data ()', () => {
+    test('it should get an object with error by given an empty string array valid data ()', () => {
         const input = [];
-        expect(controller.createEmployees(input)).toEqual([]);
+        const output = {"error": "File is empty"};
+        expect(controller.createEmployees(input)).toEqual(output);
     });
     test('it should get an array object with error by given an string array with not valid data ([PAOMO13:00-15:00])', () => {
         const input = ['PAOMO13:00-15:00'];

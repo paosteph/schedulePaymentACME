@@ -2,9 +2,10 @@
   "name": "ejercicio-pago-acme",
   "version": "1.0.0",
   "description": "Ejercicio para calcular monto pago empleados en Acme",
-  "main": "index.js",
+  "main": "client.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "exe": "node client.js"
   },
   "keywords": [
     "mvc",

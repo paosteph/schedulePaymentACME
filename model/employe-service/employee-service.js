@@ -7,7 +7,8 @@ class EmployeeService {
     }
 
     create({name, workdays}) {
-        const id = this.employees.length + 1;
+        // const id = Date.now() + name.substring(0,2) + Math.round(Math.random() * 10000);
+        const id = this.employees.length + 1; // for testing purpose
         const employee = new Employee(id, name);
 
         workdays.forEach(workday => {
@@ -16,7 +17,7 @@ class EmployeeService {
 
         this.employees.push(employee);
         
-        return this.employees[this.employees.length - 1];
+        return employee;
     }
 
     get(id) {
@@ -25,9 +26,6 @@ class EmployeeService {
         });
     }
 
-    /*getAll() {
-        return this.employees;
-    }*/
 }
 
 module.exports = {

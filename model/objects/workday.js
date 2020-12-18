@@ -14,14 +14,6 @@ class Workday {
         return this._day;
     }
 
-    /*get startTime() {
-        return this._startTime;
-    }*/
-
-    /*get endTime() {
-        return this._endTime;
-    }*/
-
     separateTime(time) {
 	    const [hour, minutes] = time.split(':');
 	    return {
