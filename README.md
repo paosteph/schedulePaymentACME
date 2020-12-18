@@ -3,7 +3,8 @@ This is an exercise wrote in JS to get the employee's pay based on the schedule 
 
 #### Visión general
 - El presente ejercicio es una simulación de una aplicación que calcula el pago de los empleados en la empresa ACME en base al día que trabajan y el horario.
-- La solución planteada tiene como princi...
+- La solución abarca la implementación de una arquitectura que permita un desarrollo modular, que facilite el desarrollo y la modificación.
+- El lenguaje de programación es Javascript y para la ejecución de tests se apoya en la librería Jest.
 
 #### Arquitectura planteada
 - La arquitectura aplicada es MVC (Modelo-Vista-Controlador) en base al enfoque planteado:
@@ -15,7 +16,7 @@ This is an exercise wrote in JS to get the employee's pay based on the schedule 
 #### Enfoque y metodología
 - El enfoque que se le ha dado a esta problema es que:
   - El usuario envía una lista de empleados en un solo archivo para primero crear todos los empleados y agregarlos a datos del sistema.
-  - Con los datos de los empleados registrados, se puede consultar el pago de cada empleado existente en el sistema y mostrarlosal cliente.
+  - Con los datos de los empleados registrados, se puede consultar el pago de cada empleado existente en el sistema y mostrarlos al cliente.
   - Las reglas de los horarios y dias establecidos para la paga por hora fueron:
     - Lunes a Viernes:
         - 00:01 - 09:00 25 USD
@@ -35,16 +36,23 @@ This is an exercise wrote in JS to get the employee's pay based on the schedule 
   - **Planificación:** 
     - Se leyó detenidamente el ejercicio propuesto, sus requerimientos y que puntos de quiebre podría tener.
     - Se planificó para acabar en 5 días, y 2 días más en caso de retrasos propios o ajenos al proyecto, culminando en el tiempo máximo de entrega (7 días).
-    - Se decidió que lenguaje de programación utilizar, JS, esto debido a la familiaridad más actual con éste, y en base a ello, la dependencia Jest para el testing.
-    - Ya con el problema claro y con los requerimientos determinados, se definió que arquitectura usar, MVC, y que patrones de diseño podrían irse aplicando, no obstante en la implementación se variaron un poco. Y también se definió el modelo de datos, aunque no se guardó en una base de datos, se simuló esto con objetos.
+    - Se decidió el lenguaje de programación utilizar, Javacript, esto debido a la familiaridad más actual con éste, y en base a ello, se escogió la dependencia Jest para el testing.
+    - Ya con el problema establecido y con los requerimientos definidos, se seleccionó que arquitectura usar, MVC, y que patrones de diseño podrían irse aplicando, no obstante en la implementación se variaron un poco. Y también se definió el modelo de datos, aunque no se guardó en una base de datos, se simuló esto con objetos.
   - **Ejecución:** 
-    - Al tratarse de un proyecto muy pequeño, de tiempo de desarrollo de una semana y con una persona como developer, no se siguió todos las prácticas de Scrum, metodología para el desarrollo de software, pero si se siguieron ciertas prácticas el scrum daily o el scrum planning, de forma sencilla.
+    - Se siguieron algunas buenas prácticas de la metodología Scrum para el desarrollo de software, como la definición de "Done", una scrum daily para si mismo, tomando en cuenta que es un proyecto de una semana y una sola persona.
     - Se verificó que el ambiente de desarrollo esté actualizado, al igual que el IDE.
     - Se creó el proyecto.
-    - Se instaló la librería para el test y se configuró en el proyecto.
-    - Se fue desarrollando en base a lo planificado, tareas auto planificadas, y se hicieron tests cada cierta funcionalidad implementada.
+    - Se instaló la librería para el test y se la configuró en el proyecto.
+    - Se realizó el desarrollo en base a lo planificado, tareas auto planificadas, y se hicieron tests cada cierta funcionalidad implementada.
     - El control del código se realizaba a diario, realizando modificaciones en caso de ser necesario.
     - Al finalizar la implementación, se verificó el funcionamiento completo de la aplicación.
   - **Cierre:**
-    - Se concluyó el sistema con éxito, no existe puesta en producción, solo se lo subió a un repositorio en Github.
-    
+    - Se concluyó el sistema con éxito tomando en cuenta que las tareas estaban completadas (Done), y como no existe puesta en producción, solo se subió el código a un repositorio en Github.
+
+#### Instalación y ejecución
+- Use el siguiente comando para instalar las dependencias de testing:
+    - **npm install**
+- Escriba el siguiente comando para ejecutar la aplicación:
+    - **npm run exe**
+- Para el testing, ejecute el siguiente comando:
+    - **npm run test**
